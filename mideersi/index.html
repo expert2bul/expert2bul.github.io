@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="米德尔斯堡足球俱乐部官方网站。为您提供最新的米堡赛程、球队新闻、球员转会信息、历史战绩及门票预订服务。">
+    <meta name="keywords" content="米德尔斯堡, 米堡, Middlesbrough FC, 米德尔斯堡足球俱乐部, 米堡新闻, 米堡赛程">
+    <title>米德尔斯堡-官方资讯与赛程服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #331a1a;
+            --accent-color: #c8102e;
+            --secondary-color: #f5f5f5;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #a00d22;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .top-bar {
+            background-color: #222;
+            font-size: 0.85rem;
+            padding: 0.4rem 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-left: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/middlesbrough_stadium/1600/900.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--white);
+            padding: 2rem 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        /* News Section */
+        .news-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .news-image {
+            height: 240px;
+            width: 100%;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .news-excerpt {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid #eee;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .fixture-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .fixture-list li:last-child {
+            border-bottom: none;
+        }
+
+        .fixture-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .fixture-teams {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .fixture-teams span {
+            display: block;
+            margin: 2px 0;
+        }
+
+        .fixture-status {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Ticket Section */
+        .ticket-section {
+            background-color: var(--secondary-color);
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .ticket-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .ticket-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .ticket-features {
+            margin: 2rem 0;
+        }
+
+        .ticket-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticket-features li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                margin-top: 0;
+            }
+
+            .ticket-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+            }
+
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                order: 2;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>欢迎访问米德尔斯堡足球俱乐部官方网站</span>
+            <span>关注官方社交媒体获取最新动态</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                MFC <span>米德尔斯堡</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#news">球队新闻</a></li>
+                    <li><a href="#fixtures">赛程安排</a></li>
+                    <li><a href="#tickets">门票服务</a></li>
+                    <li><a href="#history">球队历史</a></li>
+                    <li><a href="#shop">官方商城</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>体验激情与荣耀</h1>
+                <p>米德尔斯堡足球俱乐部致力于为球迷提供最优质的观赛体验与社区服务。加入我们，共同见证每一次精彩瞬间。</p>
+                <a href="#tickets" class="btn btn-primary">预订观赛门票</a>
+                <a href="#news" class="btn" style="border: 1px solid white; margin-left: 10px;">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>历史赛季</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24K</h3>
+                    <p>平均上座率</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2</h3>
+                    <p>联赛杯冠军</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1</h3>
+                    <p>足总杯冠军</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="grid-layout">
+            
+            <!-- Left Column: News & Updates -->
+            <section id="news">
+                <h2 class="section-title">最新动态</h2>
+                
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/middlesbrough_1/800/400.jpg" alt="新闻图片" class="news-image">
+                    <div class="news-content">
+                        <div class="news-meta">2023年10月24日 • 球队新闻</div>
+                        <h3 class="news-title">主教练宣布球队新赛季战术调整与阵容规划</h3>
+                        <p class="news-excerpt">在刚刚结束的季前集训中，主教练针对新赛季的英超及杯赛目标，对球队的进攻体系进行了重要调整，并公布了首批重点引援目标名单。</p>
+                        <a href="#" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/middlesbrough_2/800/400.jpg" alt="新闻图片" class="news-image">
+                    <div class="news-content">
+                        <div class="news-meta">2023年10月22日 • 转会市场</div>
+                        <h3 class="news-title">青训学院新星被授予一线队球衣号码</h3>
+                        <p class="news-excerpt">年仅19岁的中场小将凭借在预备队的出色表现，正式被授予新赛季的一线队号码，有望在即将到来的客场比赛中获得替补出场机会。</p>
+                        <a href="#" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">阅读全文</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/middlesbrough_3/800/400.jpg" alt="新闻图片" class="news-image">
+                    <div class="news-content">
+                        <div class="news-meta">2023年10月20日 • 社区活动</div>
+                        <h3 class="news-title">“米堡精神”社区足球营活动圆满结束</h3>
+                        <p class="news-excerpt">超过200名当地青少年参与了本周举办的社区足球训练营，球员代表们与孩子们互动，传授足球技巧并分享职业经历。</p>
+                        <a href="#" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.9rem;">阅读全文</a>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Right Column: Sidebar -->
+            <aside>
+                <!-- Next Fixtures -->
+                <div class="sidebar-widget" id="fixtures">
+                    <h3 class="widget-title">近期赛程</h3>
+                    <ul class="fixture-list">
+                        <li>
+                            <div>
+                                <span class="fixture-date">2023.10.28</span>
+                                <div class="fixture-teams">
+                                    <span>米德尔斯堡</span>
+                                    <span style="font-size: 0.8rem; color: #999;">VS</span>
+                                    <span>桑德兰</span>
+                                </div>
+                            </div>
+                            <span class="fixture-status">主场</span>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="fixture-date">2023.11.04</span>
+                                <div class="fixture-teams">
+                                    <span>西布朗</span>
+                                    <span style="font-size: 0.8rem; color: #999;">VS</span>
+                                    <span>米德尔斯堡</span>
+                                </div>
+                            </div>
+                            <span class="fixture-status">客场</span>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="fixture-date">2023.11.11</span>
+                                <div class="fixture-teams">
+                                    <span>米德尔斯堡</span>
+                                    <span style="font-size: 0.8rem; color: #999;">VS</span>
+                                    <span>普利茅斯</span>
+                                </div>
+                            </div>
+                            <span class="fixture-status">足总杯</span>
+                        </li>
+                    </ul>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="#" class="btn" style="font-size: 0.85rem; color: var(--accent-color);">查看完整赛程</a>
+                    </div>
+                </div>
+
+                <!-- Club Info / Quick Links -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">球迷服务</h3>
+                    <ul class="fixture-list" style="border: none;">
+                        <li><a href="#">会员中心</a></li>
+                        <li><a href="#">季票信息</a></li>
+                        <li><a href="#">交通指南</a></li>
+                        <li><a href="#">官方商店</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+
+                <!-- Ad Placeholder -->
+                <div style="background-color: #ddd; height: 250px; display: flex; align-items: center; justify-content: center; color: #666; border-radius: 4px;">
+                    广告位展示
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Ticket Section -->
+    <section class="ticket-section" id="tickets">
+        <div class="container">
+            <div class="ticket-grid">
+                <div class="ticket-visual">
+                    <img src="https://picsum.photos/seed/stadium_view/600/400.jpg" alt=" Riverside Stadium" style="border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                </div>
+                <div class="ticket-info">
+                    <h2>加入 Riverside 铁三角</h2>
+                    <p>无论您是支持俱乐部多年的老球迷，还是刚刚踏入 Riverside Stadium 的新朋友，我们都热烈欢迎您的到来。我们的主场拥有英格兰最热情的看台氛围之一。</p>
+                    <ul class="ticket-features">
+                        <li>包含官方纪念品礼包一份</li>
+                        <li>赛前在球迷酒吧的专属入场通道</li>
+                        <li>赛后与球员互动的签名机会</li>
+                        <li>享受全场最佳观赛视角</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">立即购买季票</a>
+                    <a href="#" class="btn" style="border: 1px solid var(--primary-color); color: var(--primary-color); margin-left: 10px;">购买单场门票</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于米德尔斯堡</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        米德尔斯堡足球俱乐部成立于1876年，是英格兰东北部最具历史底蕴的足球俱乐部之一。我们致力于维护俱乐部传统，同时推动球队在竞技层面的不断进步。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">新闻中心</a></li>
+                        <li><a href="#">赛程与积分</a></li>
+                        <li><a href="#">球员名单</a></li>
+                        <li><a href="#">历史战绩</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>球迷服务</h4>
+                    <ul>
+                        <li><a href="#">会员资格</a></li>
+                        <li><a href="#">礼品卡</a></li>
+                        <li><a href="#">球迷商店</a></li>
+                        <li><a href="#">场地租赁</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>地址: Riverside Stadium, Middlesbrough, TS1 2EA</li>
+                        <li>电话: +44 161 384 8888</li>
+                        <li>邮箱: info@mfc.co.uk</li>
+                        <li>关注我们: @MFC_Official</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 米德尔斯堡足球俱乐部版权所有。本网站为演示设计，非官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+
+            menuBtn.addEventListener('click', function() {
+                const isHidden = nav.style.display === 'none' || nav.style.display === '';
+                nav.style.display = isHidden ? 'block' : 'none';
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement){
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Close mobile menu if open
+                    if(window.innerWidth <= 600) {
+                        nav.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
