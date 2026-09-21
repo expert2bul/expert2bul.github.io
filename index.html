@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="火线囧事全集在线阅读平台，提供最新、最全的火线囧事漫画章节，包含人物介绍、剧情走向及阅读指南，带给你爆笑不断的军旅生活体验。">
+    <meta name="keywords" content="火线囧事全集,火线囧事漫画,在线漫画,军旅漫画,搞笑漫画">
+    <title>火线囧事全集-爆笑军旅生活与精彩剧情在线阅读</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d32f2f;
+            --secondary-color: #f44336;
+            --accent-color: #ffc107;
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-unit);
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            font-size: 1rem;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            color: white;
+            outline: none;
+            width: 150px;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+        }
+
+        .section-header a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .section-header a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layouts */
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 140%; /* Aspect ratio */
+            background-color: #eee;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-cover img {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-tags span {
+            background: #ffebee;
+            color: var(--secondary-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+        }
+
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 5px;
+        }
+
+        .card-btn {
+            flex: 1;
+            padding: 6px;
+            font-size: 0.8rem;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-read {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-read:hover {
+            background-color: #b71c1c;
+        }
+
+        .btn-fav {
+            background-color: #f5f5f5;
+            color: var(--text-sub);
+        }
+
+        .btn-fav:hover {
+            background-color: #e0e0e0;
+            color: var(--primary-color);
+        }
+
+        /* Featured / Highlight */
+        .featured-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .featured-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .featured-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .featured-info {
+            padding: 25px;
+        }
+
+        .featured-tag {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .featured-info h2 {
+            font-size: 2rem;
+            margin: 10px 0;
+            line-height: 1.2;
+        }
+
+        .featured-desc {
+            color: var(--text-sub);
+            margin-bottom: 20px;
+        }
+
+        .featured-stats {
+            display: flex;
+            gap: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .stat-item strong {
+            color: var(--text-main);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #eee;
+            color: #666;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background: #ffc107; color: #fff; }
+        .rank-list li:nth-child(2) .rank-num { background: #ff9800; color: #fff; }
+        .rank-list li:nth-child(3) .rank-num { background: #ff5722; color: #fff; }
+
+        .rank-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+
+        /* Chapters List */
+        .chapter-list {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.2s;
+        }
+
+        .chapter-item:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-item:hover {
+            background-color: #fafafa;
+        }
+
+        .chapter-title {
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .chapter-date {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .chapter-btn {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #cfd8dc;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #37474f;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .featured-section {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-img {
+                height: 250px;
+            }
+
+            .manga-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">火线囧事<span>全集</span></a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">最新章节</a>
+                <a href="#">热门排行</a>
+                <a href="#">分类浏览</a>
+                <a href="#">阅读指南</a>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索漫画...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>火线囧事全集</h1>
+                <p>体验不一样的军旅生活，在枪林弹雨中寻找欢笑。爆笑剧情，硬核热血，尽在火线囧事。</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="alert('正在跳转至最新章节...')">开始阅读</button>
+                    <button class="btn btn-secondary">加入书架</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Featured Content -->
+            <section class="featured-section">
+                <article class="featured-card">
+                    <img src="https://picsum.photos/seed/army1/800/400" alt="火线囧事封面" class="featured-img">
+                    <div class="featured-info">
+                        <span class="featured-tag">今日推荐</span>
+                        <h2>火线囧事：第 456 章 闪光的战友情</h2>
+                        <p class="featured-desc">在一次紧急任务中，主角团面临前所未有的挑战。不仅有敌人的阻挠，更有内部的小误会。究竟他们能否化解危机，展现真正的战友情谊？精彩内容，不容错过。</p>
+                        <div class="featured-stats">
+                            <span class="stat-item"><strong>连载中</strong> | 456 话</span>
+                            <span class="stat-item"><strong>人气</strong> 98.5万</span>
+                            <span class="stat-item"><strong>评分</strong> 9.2分</span>
+                        </div>
+                    </div>
+                </article>
+
+                <aside>
+                    <div class="sidebar-widget">
+                        <h3>热门榜单</h3>
+                        <ul class="rank-list">
+                            <li><span class="rank-num">1</span><span class="rank-title">火线囧事全集</span></li>
+                            <li><span class="rank-num">2</span><span class="rank-title">特种兵之王的逆袭</span></li>
+                            <li><span class="rank-num">3</span><span class="rank-title">铁血防线</span></li>
+                            <li><span class="rank-num">4</span><span class="rank-title">烽火连天</span></li>
+                            <li><span class="rank-num">5</span><span class="rank-title">边境风暴</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3>阅读提示</h3>
+                        <p style="font-size: 0.9rem; color: #666;">
+                            本站提供高清无损漫画阅读。请勿在未授权情况下转载。本站资源均为网友上传或网络收集，版权归原作者所有。
+                        </p>
+                    </div>
+                </aside>
+            </section>
+
+            <!-- Latest Chapters -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>最新更新</h2>
+                    <a href="#">查看更多 &raquo;</a>
+                </div>
+                <div class="chapter-list">
+                    <div class="chapter-item">
+                        <span class="chapter-title">第 456 章 闪光的战友情</span>
+                        <span class="chapter-date">2023-10-24</span>
+                        <a href="#" class="chapter-btn">阅读</a>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-title">第 455 章 危机四伏</span>
+                        <span class="chapter-date">2023-10-23</span>
+                        <a href="#" class="chapter-btn">阅读</a>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-title">第 454 章 意外的援军</span>
+                        <span class="chapter-date">2023-10-22</span>
+                        <a href="#" class="chapter-btn">阅读</a>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-title">第 453 章 深夜集结号</span>
+                        <span class="chapter-date">2023-10-21</span>
+                        <a href="#" class="chapter-btn">阅读</a>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-title">第 452 章 伪装行动</span>
+                        <span class="chapter-date">2023-10-20</span>
+                        <a href="#" class="chapter-btn">阅读</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category Grid -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>热门漫画推荐</h2>
+                    <a href="#">更多分类 &raquo;</a>
+                </div>
+                <div class="manga-grid">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/comic1/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">铁血战魂</h3>
+                            <div class="card-meta">
+                                <span>军事</span>
+                                <span>已完结</span>
+                            </div>
+                            <div class="card-tags">
+                                <span>热血</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="card-btn btn-read">阅读</div>
+                                <div class="card-btn btn-fav">收藏</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/comic2/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">烽火连城</h3>
+                            <div class="card-meta">
+                                <span>战争</span>
+                                <span>连载中</span>
+                            </div>
+                            <div class="card-tags">
+                                <span>剧情</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="card-btn btn-read">阅读</div>
+                                <div class="card-btn btn-fav">收藏</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/comic3/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">军旅囧事</h3>
+                            <div class="card-meta">
+                                <span>搞笑</span>
+                                <span>连载中</span>
+                            </div>
+                            <div class="card-tags">
+                                <span>幽默</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="card-btn btn-read">阅读</div>
+                                <div class="card-btn btn-fav">收藏</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/comic4/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">边境猎鹰</h3>
+                            <div class="card-meta">
+                                <span>动作</span>
+                                <span>连载中</span>
+                            </div>
+                            <div class="card-tags">
+                                <span>冒险</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="card-btn btn-read">阅读</div>
+                                <div class="card-btn btn-fav">收藏</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/comic5/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">王牌特战队</h3>
+                            <div class="card-meta">
+                                <span>科幻</span>
+                                <span>连载中</span>
+                            </div>
+                            <div class="card-tags">
+                                <span>未来</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="card-btn btn-read">阅读</div>
+                                <div class="card-btn btn-fav">收藏</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="card">
+                        <div class="card-cover">
+                            <img src="https://picsum.photos/seed/comic6/300/420" alt="漫画封面">
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">暗夜特工</h3>
+                            <div class="card-meta">
+                                <span>悬疑</span>
+                                <span>连载中</span>
+                            </div>
+                            <div class="card-tags">
+                                <span>推理</span>
+                            </div>
+                            <div class="card-actions">
+                                <div class="card-btn btn-read">阅读</div>
+                                <div class="card-btn btn-fav">收藏</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于火线囧事全集</h4>
+                <p style="font-size: 0.9rem; line-height: 1.8;">
+                    致力于为漫画爱好者提供最优质的在线阅读体验。我们收集整理了大量热门军事、热血题材漫画，让读者随时随地享受阅读乐趣。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">军事战争</a></li>
+                    <li><a href="#">都市异能</a></li>
+                    <li><a href="#">历史传记</a></li>
+                    <li><a href="#">冒险动漫</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">获取最新漫画资讯</p>
+                <div style="display: flex; gap: 10px;">
+                    <span style="background:#37474f; padding:5px 10px; border-radius:4px;">微信</span>
+                    <span style="background:#37474f; padding:5px 10px; border-radius:4px;">微博</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 火线囧事全集阅读网 版权所有 | 仅供学习交流使用</p>
+        </div>
+    </footer>
+
+</body>
+                                                         </html>
