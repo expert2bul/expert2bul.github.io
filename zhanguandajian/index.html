@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="专业展馆搭建服务商，提供展厅设计、展台制作、特装搭建、会议活动布置一站式解决方案。从策划到施工，打造具有视觉冲击力与品牌传播力的展览空间。">
+    <meta name="keywords" content="展馆搭建,展厅设计,展台制作,特装搭建,展览展示,活动策划">
+    <title>展馆搭建-专业展览空间设计与施工服务</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a2a3a;
+            --accent-color: #d4a373;
+            --accent-hover: #b08968;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --border-radius: 4px;
+            --container-width: 1200px;
+            --header-height: 80px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            height: var(--header-height);
+            background-color: rgba(255, 255, 255, 0.95);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .header-cta {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(26, 42, 58, 0.8), rgba(26, 42, 58, 0.7)), url('https://picsum.photos/seed/exhibition/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: var(--header-height);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--bg-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Process Section */
+        .process {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .process .section-header h2 {
+            color: white;
+        }
+
+        .process .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background-color: rgba(255,255,255,0.2);
+            z-index: 0;
+        }
+
+        .step-item {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+            border: 4px solid var(--primary-color);
+        }
+
+        .step-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .step-item p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--bg-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            height: 250px;
+            group: cursor;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 42, 58, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+
+        /* Stats Section */
+        .stats {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--bg-white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            padding-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-list svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent-color);
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            color: var(--text-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #888;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="4" width="20" height="16" rx="2" stroke="#d4a373" stroke-width="2"/>
+                    <path d="M7 8H17M7 12H17M7 16H13" stroke="#1a2a3a" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                展馆<span>搭建</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#services">服务项目</a></li>
+                    <li><a href="#process">服务流程</a></li>
+                    <li><a href="#portfolio">案例展示</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-primary">获取报价</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>打造具有影响力的<br>沉浸式展览空间</h1>
+                <p>从创意策划到精细施工，我们为品牌提供一站式的展馆搭建解决方案，助力您的展会大放异彩。</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">查看案例</a>
+                    <a href="#contact" class="btn btn-outline" style="border-color: white; color: white;">立即咨询</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="container stats-container">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>成功案例</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10年+</h3>
+                    <p>行业经验</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>客户满意度</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>专业设计师</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services">
+            <div class="container">
+                <div class="section-header">
+                    <h2>专业服务项目</h2>
+                    <p>我们提供全方位的展览展示服务，满足不同规模和类型的活动需求</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>特装展台搭建</h3>
+                        <p>根据品牌形象定制专属展台结构，从设计图纸到现场施工，确保展台稳固美观，符合展馆安全规范。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            </svg>
+                        </div>
+                        <h3>展厅设计规划</h3>
+                        <p>为企业展厅提供空间规划、动线设计及多媒体互动方案，打造具有叙事性和品牌传播力的展示空间。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3>会议活动布置</h3>
+                        <p>承接新闻发布会、年会、论坛等活动的舞台搭建、灯光音响及整体氛围营造服务。</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3>物料设计与制作</h3>
+                        <p>包括展板设计、易拉宝、X展架、手提袋及宣传册等宣传物料的印刷与制作服务。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="section process">
+            <div class="container">
+                <div class="section-header">
+                    <h2>服务流程</h2>
+                    <p>严谨的流程管理，确保每一个环节精准执行</p>
+                </div>
+                <div class="process-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h4>需求沟通</h4>
+                        <p>深入了解客户需求、预算及展会目标</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h4>方案设计</h4>
+                        <p>提供创意设计图纸及效果图供确认</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h4>深化制作</h4>
+                        <p>工程深化、材料采购与生产加工</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <h4>现场搭建</h4>
+                        <p>专业团队进驻现场，高效安全施工</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <h4>撤展服务</h4>
+                        <p>专业撤展，确保现场环境整洁</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选案例</h2>
+                    <p>见证我们为不同行业客户打造的视觉盛宴</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/tech/600/400" alt="科技产品发布会展台">
+                        <div class="portfolio-overlay">
+                            <h4>科技产品发布会</h4>
+                            <p>特装展台搭建 | 200㎡</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/car/600/400" alt="汽车品牌展厅">
+                        <div class="portfolio-overlay">
+                            <h4>汽车品牌展厅</h4>
+                            <p>展厅设计 | 500㎡</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/food/600/400" alt="食品展会">
+                        <div class="portfolio-overlay">
+                            <h4>国际食品博览会</h4>
+                            <p>特装展位 | 80㎡</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/fashion/600/400" alt="时尚周">
+                        <div class="portfolio-overlay">
+                            <h4>时尚周后台搭建</h4>
+                            <p>活动搭建 | 150㎡</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/finance/600/400" alt="金融峰会">
+                        <div class="portfolio-overlay">
+                            <h4>金融行业峰会</h4>
+                            <p>舞台灯光 | 300㎡</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://picsum.photos/seed/art/600/400" alt="艺术展">
+                        <div class="portfolio-overlay">
+                            <h4>现代艺术展</h4>
+                            <p>文化展览 | 120㎡</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-outline">查看更多案例</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                    <p>关于展馆搭建的常见疑问解答</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">展馆搭建的周期一般是多久？</button>
+                        <div class="faq-answer">
+                            <p>搭建周期取决于展台的大小、复杂程度以及展馆的审批流程。通常标准展位（3x3m）的搭建周期为3-5天，大型特装展台通常需要15-30天的设计与施工周期。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">如何保证搭建的安全性和合规性？</button>
+                        <div class="faq-answer">
+                            <p>我们拥有专业的施工团队和丰富的现场管理经验，所有搭建材料均符合展馆安全标准。在施工前会提交详细的结构图纸供展馆方审核，施工过程中有专人负责安全巡查。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">可以提供从设计到施工的一站式服务吗？</button>
+                        <div class="faq-answer">
+                            <p>完全可以。我们提供从前期策划、平面设计、3D效果图制作、工程深化、物料生产到现场搭建和撤展的“一站式”服务，让您无需对接多家供应商，省心省力。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">搭建费用包含哪些内容？</button>
+                        <div class="faq-answer">
+                            <p>基础费用通常包含设计费、材料费、人工费、运输费和展馆管理费。具体包含项目需根据您选择的方案（如是否含水电、特殊造型、多媒体设备等）在合同中明确列出。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-info">
+                        <h3>联系我们</h3>
+                        <p>如果您有展馆搭建需求或想了解更多信息，请随时与我们联系。我们的专业顾问将为您提供详细的咨询服务。</p>
+                        <ul class="info-list">
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                400-123-4567
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                contact@exhibitbuild.com
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                北京市朝阳区展览中心路88号
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-form">
+                        <form onsubmit="event.preventDefault(); alert('感谢您的留言，我们会尽快联系您！');">
+                            <div class="form-group">
+                                <label>您的姓名</label>
+                                <input type="text" placeholder="请输入姓名" required>
+                            </div>
+                            <div class="form-group">
+                                <label>联系电话</label>
+                                <input type="tel" placeholder="请输入手机号码" required>
+                            </div>
+                            <div class="form-group">
+                                <label>需求类型</label>
+                                <select>
+                                    <option>展台搭建</option>
+                                    <option>展厅设计</option>
+                                    <option>活动策划</option>
+                                    <option>其他</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>留言内容</label>
+                                <textarea placeholder="请简述您的需求..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">提交咨询</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 展馆搭建服务提供商 版权所有</p>
+            <p>专注于为企业提供高品质的展览展示解决方案</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+                              </html>
